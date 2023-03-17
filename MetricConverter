@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class MeterConversion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double meters;
+        do {
+            System.out.print("Enter a measurement in meters: ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Invalid input. Please enter a valid measurement in meters: ");
+                scanner.next();
+            }
+            meters = scanner.nextDouble();
+        } while (meters < 0);
+
+        // Convert to miles
+        double miles = meters / 1609.34;
+
+        // Convert to feet
+        double feet = meters * 3.28084;
+
+        // Convert to inches
+        double inches = meters * 39.3701;
+
+        System.out.printf("%.2f meters is equivalent to %.2f miles, %.2f feet, and %.2f inches.%n",
+                          meters, miles, feet, inches);
+    }
+}
